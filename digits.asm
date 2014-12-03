@@ -3,28 +3,22 @@
 ;Proci kroz niz na lokaciji SOURCE i pronaci sve numericke cifre. Svaku pronadjenu cifru je potrebno 
 ;prebaciti u niz DIGITS.
 
-
 SECTION .data
 source TIMES 2 db 'a'
        db	'3','4'
        db	'T'
 source_lenght equ $-source
 
-
 SECTION .bss
 digits resb source_lenght ;source_lenght is a max number of found digits
-
 
 SECTION .text
 global _start
 _start:
 
-
 MOV ESI,source
 MOV EDI,digits
 MOV ECX,source_lenght
-
-
 
 iterate:
       CMP BYTE[ESI],48
